@@ -11,15 +11,21 @@ function LunchCheckController($scope) {
   $scope.blankItemsWarning = ""
 
   $scope.gradeAmount = function (num) {
-    var msg = ""
-    if (num == 0)
-      msg = "Please enter data";
-    else {
-      if (num > 3)
+    var msg;
+    switch (num) {
+      case -1:
+        msg = ""
+        break;
+      case 0:
+        msg = "Please enter data";
+        break;
+      case 1:
+      case 2:
+      case 3:
+        msg = "Enjoy";
+        break;
+      default:
         msg = "Too Much!";
-      else {
-            msg = "Enjoy";
-        }
     }
     return msg;
   };
