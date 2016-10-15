@@ -1,25 +1,42 @@
-<!DOCTYPE html>
-<html ng-app='LunchCheck'>
+<!doctype html>
+<html lang="en" ng-app="LunchCheck">
   <head>
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
-    <style> body { font-size: 1.2em; }</style>
-    <title>Lunch Consumption Checker</title>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
   </head>
-  <body>
-    <h1>Lunch Consumption Checker</h1>
-    <div ng-controller='LunchCheckController'>
-      <div>
-        Enter what you ate today separated  by commas
-        <input type="text" ng-model="foodList">
-        <font color="red" size="2px"><label>{{blankItemsWarning}}</label></font>
-      </div>
-      <div>
-        <button ng-click="analizeLunchList()">Check If Too Much</button>
-        <br>
-        {{gradeAmount(foodCount)}}
-      </div>
+<body>
+   <div class="container" >
+     <h1>Lunch Checker</h1>
+     <div >
+         <div class="form-group" ng-controller="LunchCheckController">
+             <input id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control"
+             ng-model="foodList">
+             <font color="red" size="2px">
+               <label>{{blankItemsWarning}}</label><br>
+             </font>
+             Enter your usual lunch separated by commas
+         </div>
+         <div class="form-group">
+           <button class="btn btn-default"
+             ng-click="analizeLunchList()">
+             Check If Too Much
+           </button>
+         </div>
+         <div class="form-group message">
+           <!-- Your message can go here. -->
+           {{gradeAmount(foodCount)}}
+         </div>
     </div>
-  </body>
+   </div>
+
+</body>
 </html>
