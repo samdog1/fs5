@@ -14,8 +14,8 @@
 <body>
    <div class="container" >
      <h1>Lunch Checker</h1>
-     <div >
-         <div class="form-group" ng-controller="LunchCheckController">
+     <div ng-controller="LunchCheckController">
+         <div class="form-group" >
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
              class="form-control"
@@ -32,11 +32,9 @@
            </button>
          </div>
          <div class="form-group message">
-           <!-- Your message can go here. -->
            {{gradeAmount(foodCount)}}
          </div>
     </div>
    </div>
-
 </body>
 </html>
